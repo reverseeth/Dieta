@@ -99,12 +99,15 @@
     }
   </style>
 </head>
-<body>
+
+<!-- ATIVA O TEMA ESCURO POR PADRÃO -->
+<body class="dark">
   <header>
     <h1>Dieta Hipercalórica para Hipertrofia [Gustavo Cota]</h1>
     <div class="switch">
       Tema Escuro
-      <input type="checkbox" id="themeSwitch" />
+      <!-- SWITCH JÁ MARCADO POR PADRÃO -->
+      <input type="checkbox" id="themeSwitch" checked />
     </div>
   </header>
 
@@ -238,6 +241,12 @@
 
   <script>
     const switcher = document.getElementById('themeSwitch');
+
+    // Garente que o switch reflita o estado inicial
+    if (!document.body.classList.contains("dark")) {
+      switcher.checked = false;
+    }
+
     switcher.addEventListener('change', () => {
       document.body.classList.toggle('dark');
     });

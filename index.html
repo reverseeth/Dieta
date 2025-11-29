@@ -3,93 +3,167 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dieta Hipercalórica para Hipertrofia [Gustavo Cota]</title>
+  <title>Dieta [Gustavo Cota]</title>
   <style>
     :root {
       --bg-color: #ffffff;
       --text-color: #111111;
-      --card-color: ##f9f9f9;
+      --border-color: #ddd;
+      --primary-blue: #0052ff;
+      --notif-bg: #0052ff;
+      --notif-text: #ffffff;
     }
-
     body.dark {
       --bg-color: #111111;
       --text-color: #ffffff;
-      --card-color: #1e1e1e;
+      --border-color: #444;
     }
-
     body {
       margin: 0;
       font-family: "Helvetica Neue", sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
+      font-size: 1.05rem;
       transition: all 0.3s ease;
     }
-
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: var(--card-color);
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid var(--border-color);
     }
-
     h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.8em;
+      font-weight: normal;
     }
-
+    h2 {
+      margin: 0;
+      font-size: 1.6em;
+      font-weight: normal;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.8rem;
+      display: inline-block;
+    }
     .switch {
       display: flex;
       align-items: center;
     }
-
-    .switch input {
-      margin-left: 10px;
-      transform: scale(1.2);
+    .theme-toggle {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 26px;
     }
-
+    .theme-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px; width: 20px;
+      left: 4px; bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+    .theme-toggle input:checked + .slider {
+      background-color: var(--primary-blue);
+    }
+    .theme-toggle input:checked + .slider:before {
+      transform: translateX(24px);
+    }
     main {
       max-width: 900px;
       margin: auto;
       padding: 2rem;
     }
-
     section {
-      background-color: var(--card-color);
       padding: 1.5rem;
       border-radius: 8px;
+      border: 1px solid var(--border-color);
       margin-bottom: 2rem;
+      background: transparent;
     }
-
-    h2 {
-      border-bottom: 2px solid var(--text-color);
-      padding-bottom: 0.3rem;
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 1rem 0;
     }
-
     th, td {
       padding: 8px;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid var(--border-color);
       text-align: left;
     }
-
     ul {
       margin: 0;
-      padding-left: 1.2rem;
+      padding-left: 1.4rem;
     }
-
+    ul li {
+      margin-bottom: 0.5rem;
+    }
     .macros {
       font-weight: bold;
       margin-top: 0.5rem;
     }
-
+    .meal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .meal-header input[type="checkbox"] {
+      transform: scale(1.5);
+      accent-color: var(--primary-blue);
+    }
+    .calories-total {
+      font-size: 1.25em;
+      text-align: center;
+      padding: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      background: transparent;
+    }
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--notif-bg);
+      color: var(--notif-text);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+    }
+    .notification.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .notification .check-icon {
+      margin-right: 8px;
+      font-size: 1.2em;
+    }
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -100,28 +174,32 @@
   </style>
 </head>
 
-<!-- ATIVA O TEMA ESCURO POR PADRÃO -->
-<body class="dark">
+<body>
   <header>
-    <h1>Dieta Hipercalórica para Hipertrofia [Gustavo Cota]</h1>
+    <h1>Dieta [Gustavo Cota]</h1>
     <div class="switch">
-      Tema Escuro
-      <!-- SWITCH JÁ MARCADO POR PADRÃO -->
-      <input type="checkbox" id="themeSwitch" checked />
+      <label class="theme-toggle">
+        <input type="checkbox" id="themeSwitch" />
+        <span class="slider"></span>
+      </label>
     </div>
   </header>
 
   <main>
     <section>
       <h2>🍽️ Cardápio Hipercalórico (~3.100 kcal/dia)</h2>
-      <p><strong>Distribuição:</strong><br>
-        • Proteínas: ~160–170g<br>
-        • Carboidratos: ~380–400g<br>
-        • Gorduras: ~90–100g</p>
+      <ul>
+        <li>Proteínas: ~160–170g</li>
+        <li>Carboidratos: ~380–400g</li>
+        <li>Gorduras: ~90–100g</li>
+      </ul>
     </section>
 
     <section>
-      <h2>🕗 Café da Manhã – 08h00 (~700 kcal)</h2>
+      <div class="meal-header">
+        <h2>🕗 Café da Manhã – 08h00 (~700 kcal)</h2>
+        <input type="checkbox" class="meal" data-name="Café da Manhã" data-kcal="700" />
+      </div>
       <table>
         <tr><th>Alimento</th><th>Quantidade</th></tr>
         <tr><td>Ovos mexidos</td><td>4 unidades</td></tr>
@@ -133,7 +211,10 @@
     </section>
 
     <section>
-      <h2>🕙 Lanche da Manhã – 10h30 (~500 kcal)</h2>
+      <div class="meal-header">
+        <h2>🕙 Lanche da Manhã – 10h30 (~500 kcal)</h2>
+        <input type="checkbox" class="meal" data-name="Lanche da Manhã" data-kcal="500" />
+      </div>
       <table>
         <tr><td>Shake de whey com leite</td><td>1 scoop + 300ml leite integral</td></tr>
         <tr><td>Pasta de amendoim</td><td>1 colher de sopa</td></tr>
@@ -143,19 +224,25 @@
     </section>
 
     <section>
-      <h2>🕛 Almoço – 13h00 (~750 kcal)</h2>
+      <div class="meal-header">
+        <h2>🕛 Almoço – 13h00 (~750 kcal)</h2>
+      <input type="checkbox" class="meal" data-name="Almoço" data-kcal="750" />
+      </div>
       <table>
         <tr><td>Arroz branco</td><td>200g cozido (~4 colheres cheias)</td></tr>
         <tr><td>Feijão carioca</td><td>1 concha (120g)</td></tr>
         <tr><td>Carne moída (patinho)</td><td>150g</td></tr>
         <tr><td>Legumes cozidos</td><td>Brócolis, cenoura</td></tr>
-        <tr><td>Salada com azeite</td><td>Folhas + 1 colher de sopa de azeite</td></tr>
+        <tr><td>Salada com azeite</td><td>Folhas verdes + 1 colher de sopa de azeite</td></tr>
       </table>
       <div class="macros">40g proteína | 75g carboidrato | 25g gordura</div>
     </section>
 
     <section>
-      <h2>🕓 Lanche da Tarde – 16h00 (~450 kcal)</h2>
+      <div class="meal-header">
+        <h2>🕓 Lanche da Tarde – 16h00 (~450 kcal)</h2>
+        <input type="checkbox" class="meal" data-name="Lanche da Tarde" data-kcal="450" />
+      </div>
       <table>
         <tr><td>Iogurte natural ou grego</td><td>1 pote (170g)</td></tr>
         <tr><td>Mix de castanhas</td><td>25g (1 punhado)</td></tr>
@@ -165,43 +252,58 @@
     </section>
 
     <section>
-      <h2>🕕 Pré-jantar – 18h30 (~400 kcal)</h2>
+      <div class="meal-header">
+        <h2>🕕 Pré‑jantar – 18h30 (~400 kcal)</h2>
+        <input type="checkbox" class="meal" data-name="Pré‑jantar" data-kcal="400" />
+      </div>
       <table>
         <tr><td>Batata-doce cozida</td><td>150g (~1 média)</td></tr>
         <tr><td>Ovos cozidos</td><td>2 unidades</td></tr>
         <tr><td>Salada com azeite</td><td>Folhas + 1 colher de azeite</td></tr>
       </table>
-      <div class="macros">20g proteína | 35g carboidrato | 18g gordura</div>
+      <div class="macros">20g proteína | 35g carboidrato | 18g gordura</td></tr></div>
     </section>
 
     <section>
-      <h2>🕗 Jantar – 20h00 (~650 kcal)</h2>
+      <div class="meal-header">
+        <h2>🕗 Jantar – 20h00 (~650 kcal)</h2>
+        <input type="checkbox" class="meal" data-name="Jantar" data-kcal="650" />
+      </div>
       <table>
         <tr><td>Arroz integral</td><td>150g cozido (~3 colheres)</td></tr>
         <tr><td>Peito de frango grelhado</td><td>150g</td></tr>
         <tr><td>Legumes refogados</td><td>Abobrinha, pimentão, cebola</td></tr>
         <tr><td>Azeite de oliva</td><td>1 colher de sopa</td></tr>
       </table>
-      <div class="macros">45g proteína | 50g carboidrato | 22g gordura</div>
+      <div class="macros">45g proteína | 50g carboidrato | 22g gordura</td></tr></div>
     </section>
 
     <section>
-      <h2>🕙 Ceia – 22h00 (~350 kcal)</h2>
+      <div class="meal-header">
+        <h2>🕙 Ceia – 22h00 (~350 kcal)</h2>
+        <input type="checkbox" class="meal" data-name="Ceia" data-kcal="350" />
+      </div>
       <table>
         <tr><td>Leite integral</td><td>250 ml</td></tr>
         <tr><td>Banana</td><td>1 unidade pequena</td></tr>
         <tr><td>Aveia</td><td>1 colher de sopa</td></tr>
-        <tr><td>Castanhas-do-pará</td><td>3 unidades</td></tr>
+        <tr><td>Castanhas‑do‑pará</td><td>3 unidades</td></tr>
       </table>
       <div class="macros">15g proteína | 30g carboidrato | 15g gordura</div>
     </section>
 
+    <div class="calories-total">
+      Total de calorias consumidas hoje: <span id="totalKcal">0</span> kcal
+    </div>
+
     <section>
       <h2>🔁 Resumo Nutricional Total Diário</h2>
-      <p><strong>Calorias:</strong> ~3.100 kcal<br>
-         <strong>Proteínas:</strong> 160–170g<br>
-         <strong>Carboidratos:</strong> 380–400g<br>
-         <strong>Gorduras:</strong> 90–100g</p>
+      <p>
+        <strong>Calorias:</strong> ~3.100 kcal<br>
+        <strong>Proteínas:</strong> 160–170g<br>
+        <strong>Carboidratos:</strong> 380–400g<br>
+        <strong>Gorduras:</strong> 90–100g
+      </p>
     </section>
 
     <section>
@@ -219,10 +321,10 @@
     <section>
       <h2>🛒 Lista de Compras por Categoria</h2>
       <ul>
-        <li><strong>Proteínas:</strong> Ovos, peito de frango, carne moída (patinho), whey, iogurte, leite</li>
-        <li><strong>Carboidratos:</strong> Arroz, batata-doce, feijão, pão integral, aveia, banana, mamão, maçã, macarrão integral (opcional)</li>
-        <li><strong>Gorduras boas:</strong> Azeite, pasta de amendoim, castanha-do-pará, nozes, amêndoas</li>
-        <li><strong>Vegetais e legumes:</strong> Brócolis, cenoura, abobrinha, alface, rúcula, espinafre, tomate, cebola, pimentão</li>
+        <li>Proteínas: Ovos, peito de frango, carne moída (patinho), whey, iogurte natural, leite integral</li>
+        <li>Carboidratos: Arroz (branco/integral), batata-doce, feijão, pão integral, aveia, banana, mamão, maçã, macarrão integral (opcional)</li>
+        <li>Gorduras boas: Azeite de oliva extra virgem, pasta de amendoim, castanha‑do‑pará, nozes, amêndoas</li>
+        <li>Vegetais e legumes: Brócolis, cenoura, abobrinha, alface, rúcula, espinafre, tomate, cebola, pimentão</li>
       </ul>
     </section>
 
@@ -230,10 +332,13 @@
       <h2>📌 Observações Finais</h2>
       <ul>
         <li>Alimentação ideal para quem tem baixo peso e deseja ganhar massa de forma saudável.</li>
-        <li>Tome <strong>creatina (3-5g/dia)</strong> com o shake da manhã ou pós-jantar, mesmo sem treino.</li>
+        <li>Tome creatina (3‑5g/dia) com o shake da manhã ou pós‑jantar, mesmo sem treino.</li>
       </ul>
     </section>
+
   </main>
+
+  <div class="notification" id="notif"><span class="check-icon">✔</span><span id="notif-text"></span></div>
 
   <footer>
     © 2025 – @gu.eth
@@ -241,15 +346,40 @@
 
   <script>
     const switcher = document.getElementById('themeSwitch');
-
-    // Garente que o switch reflita o estado inicial
-    if (!document.body.classList.contains("dark")) {
-      switcher.checked = false;
-    }
-
     switcher.addEventListener('change', () => {
       document.body.classList.toggle('dark');
     });
+
+    const checkboxes = document.querySelectorAll('.meal');
+    const totalDisplay = document.getElementById('totalKcal');
+    const notif = document.getElementById('notif');
+    const notifText = document.getElementById('notif-text');
+
+    function showNotification(text) {
+      notifText.textContent = " " + text + " adicionado";
+      notif.classList.add('show');
+      setTimeout(() => {
+        notif.classList.remove('show');
+      }, 2000);
+    }
+
+    function updateCalories(e) {
+      let total = 0;
+      checkboxes.forEach(cb => {
+        if (cb.checked) total += parseInt(cb.dataset.kcal);
+      });
+      totalDisplay.textContent = total;
+
+      if (e && e.target.checked) {
+        showNotification(e.target.dataset.name);
+      }
+    }
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', updateCalories);
+    });
+
+    updateCalories();
   </script>
 </body>
 </html>

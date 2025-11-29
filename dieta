@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dieta Hipercalórica para Hipertrofia [Gustavo Cota]</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --card-color: #f7f7f7;
+    }
+
+    body.dark {
+      --bg-color: #111111;
+      --text-color: #ffffff;
+      --card-color: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--card-color);
+      border-bottom: 1px solid #ccc;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .switch {
+      display: flex;
+      align-items: center;
+    }
+
+    .switch input {
+      margin-left: 10px;
+      transform: scale(1.2);
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      background-color: var(--card-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--text-color);
+      padding-bottom: 0.3rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .macros {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dieta Hipercalórica para Hipertrofia [Gustavo Cota]</h1>
+    <div class="switch">
+      Tema Escuro
+      <input type="checkbox" id="themeSwitch" />
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>🍽️ Cardápio Hipercalórico (~3.100 kcal/dia)</h2>
+      <p><strong>Distribuição:</strong><br>
+        • Proteínas: ~160–170g<br>
+        • Carboidratos: ~380–400g<br>
+        • Gorduras: ~90–100g</p>
+    </section>
+
+    <section>
+      <h2>🕗 Café da Manhã – 08h00 (~700 kcal)</h2>
+      <table>
+        <tr><th>Alimento</th><th>Quantidade</th></tr>
+        <tr><td>Ovos mexidos</td><td>4 unidades</td></tr>
+        <tr><td>Pão integral com manteiga</td><td>2 fatias + 1 colher de chá</td></tr>
+        <tr><td>Banana com aveia</td><td>1 unidade + 2 colheres de sopa</td></tr>
+        <tr><td>Leite integral</td><td>200 ml</td></tr>
+      </table>
+      <div class="macros">35g proteína | 70g carboidrato | 30g gordura</div>
+    </section>
+
+    <section>
+      <h2>🕙 Lanche da Manhã – 10h30 (~500 kcal)</h2>
+      <table>
+        <tr><td>Shake de whey com leite</td><td>1 scoop + 300ml leite integral</td></tr>
+        <tr><td>Pasta de amendoim</td><td>1 colher de sopa</td></tr>
+        <tr><td>Aveia</td><td>1 colher de sopa</td></tr>
+      </table>
+      <div class="macros">35g proteína | 30g carboidrato | 20g gordura</div>
+    </section>
+
+    <section>
+      <h2>🕛 Almoço – 13h00 (~750 kcal)</h2>
+      <table>
+        <tr><td>Arroz branco</td><td>200g cozido (~4 colheres cheias)</td></tr>
+        <tr><td>Feijão carioca</td><td>1 concha (120g)</td></tr>
+        <tr><td>Carne moída (patinho)</td><td>150g</td></tr>
+        <tr><td>Legumes cozidos</td><td>Brócolis, cenoura</td></tr>
+        <tr><td>Salada com azeite</td><td>Folhas + 1 colher de sopa de azeite</td></tr>
+      </table>
+      <div class="macros">40g proteína | 75g carboidrato | 25g gordura</div>
+    </section>
+
+    <section>
+      <h2>🕓 Lanche da Tarde – 16h00 (~450 kcal)</h2>
+      <table>
+        <tr><td>Iogurte natural ou grego</td><td>1 pote (170g)</td></tr>
+        <tr><td>Mix de castanhas</td><td>25g (1 punhado)</td></tr>
+        <tr><td>Fruta</td><td>Mamão ou maçã (1 unidade média)</td></tr>
+      </table>
+      <div class="macros">15g proteína | 35g carboidrato | 25g gordura</div>
+    </section>
+
+    <section>
+      <h2>🕕 Pré-jantar – 18h30 (~400 kcal)</h2>
+      <table>
+        <tr><td>Batata-doce cozida</td><td>150g (~1 média)</td></tr>
+        <tr><td>Ovos cozidos</td><td>2 unidades</td></tr>
+        <tr><td>Salada com azeite</td><td>Folhas + 1 colher de azeite</td></tr>
+      </table>
+      <div class="macros">20g proteína | 35g carboidrato | 18g gordura</div>
+    </section>
+
+    <section>
+      <h2>🕗 Jantar – 20h00 (~650 kcal)</h2>
+      <table>
+        <tr><td>Arroz integral</td><td>150g cozido (~3 colheres)</td></tr>
+        <tr><td>Peito de frango grelhado</td><td>150g</td></tr>
+        <tr><td>Legumes refogados</td><td>Abobrinha, pimentão, cebola</td></tr>
+        <tr><td>Azeite de oliva</td><td>1 colher de sopa</td></tr>
+      </table>
+      <div class="macros">45g proteína | 50g carboidrato | 22g gordura</div>
+    </section>
+
+    <section>
+      <h2>🕙 Ceia – 22h00 (~350 kcal)</h2>
+      <table>
+        <tr><td>Leite integral</td><td>250 ml</td></tr>
+        <tr><td>Banana</td><td>1 unidade pequena</td></tr>
+        <tr><td>Aveia</td><td>1 colher de sopa</td></tr>
+        <tr><td>Castanhas-do-pará</td><td>3 unidades</td></tr>
+      </table>
+      <div class="macros">15g proteína | 30g carboidrato | 15g gordura</div>
+    </section>
+
+    <section>
+      <h2>🔁 Resumo Nutricional Total Diário</h2>
+      <p><strong>Calorias:</strong> ~3.100 kcal<br>
+         <strong>Proteínas:</strong> 160–170g<br>
+         <strong>Carboidratos:</strong> 380–400g<br>
+         <strong>Gorduras:</strong> 90–100g</p>
+    </section>
+
+    <section>
+      <h2>🔄 Sugestões de Substituição</h2>
+      <table>
+        <tr><th>Alimento</th><th>Substituições</th></tr>
+        <tr><td>Frango / carne moída</td><td>Atum, ovos, peixe, carne magra</td></tr>
+        <tr><td>Banana</td><td>Mamão, maçã, manga, pera</td></tr>
+        <tr><td>Aveia</td><td>Granola sem açúcar, linhaça</td></tr>
+        <tr><td>Arroz</td><td>Mandioca, macarrão, batata</td></tr>
+        <tr><td>Castanhas</td><td>Nozes, amêndoas, sementes de girassol</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>🛒 Lista de Compras por Categoria</h2>
+      <ul>
+        <li><strong>Proteínas:</strong> Ovos, peito de frango, carne moída (patinho), whey, iogurte, leite</li>
+        <li><strong>Carboidratos:</strong> Arroz, batata-doce, feijão, pão integral, aveia, banana, mamão, maçã, macarrão integral (opcional)</li>
+        <li><strong>Gorduras boas:</strong> Azeite, pasta de amendoim, castanha-do-pará, nozes, amêndoas</li>
+        <li><strong>Vegetais e legumes:</strong> Brócolis, cenoura, abobrinha, alface, rúcula, espinafre, tomate, cebola, pimentão</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📌 Observações Finais</h2>
+      <ul>
+        <li>Alimentação ideal para quem tem baixo peso e deseja ganhar massa de forma saudável.</li>
+        <li>Tome <strong>creatina (3-5g/dia)</strong> com o shake da manhã ou pós-jantar, mesmo sem treino.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 – Dieta personalizada por ChatGPT
+  </footer>
+
+  <script>
+    const switcher = document.getElementById('themeSwitch');
+    switcher.addEventListener('change', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>

@@ -52,13 +52,13 @@
       display: flex;
       align-items: center;
     }
-    .theme-toggle {
+    .theme‑toggle {
       position: relative;
       display: inline-block;
       width: 50px;
       height: 26px;
     }
-    .theme-toggle input {
+    .theme‑toggle input {
       opacity: 0;
       width: 0;
       height: 0;
@@ -81,10 +81,10 @@
       transition: 0.4s;
       border-radius: 50%;
     }
-    .theme-toggle input:checked + .slider {
+    .theme‑toggle input:checked + .slider {
       background-color: var(--primary-blue);
     }
-    .theme-toggle input:checked + .slider:before {
+    .theme‑toggle input:checked + .slider:before {
       transform: translateX(24px);
     }
     main {
@@ -160,9 +160,11 @@
       opacity: 1;
       pointer-events: auto;
     }
-    .notification .check-icon {
+    .notification svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--notif-text);
       margin-right: 8px;
-      font-size: 1.2em;
     }
     footer {
       text-align: center;
@@ -178,7 +180,7 @@
   <header>
     <h1>Dieta [Gustavo Cota]</h1>
     <div class="switch">
-      <label class="theme-toggle">
+      <label class="theme‑toggle">
         <input type="checkbox" id="themeSwitch" />
         <span class="slider"></span>
       </label>
@@ -335,7 +337,7 @@
       <ul>
         <li>Arroz branco</li>
         <li>Arroz integral</li>
-        <li>Batata-doce</li>
+        <li>Batata‑doce</li>
         <li>Feijão</li>
         <li>Pão integral</li>
         <li>Aveia</li>
@@ -349,7 +351,7 @@
       <ul>
         <li>Azeite de oliva extra virgem</li>
         <li>Pasta de amendoim integral</li>
-        <li>Castanha-do-pará</li>
+        <li>Castanha‑do‑pará</li>
         <li>Nozes</li>
         <li>Amêndoas</li>
       </ul>
@@ -378,7 +380,12 @@
 
   </main>
 
-  <div class="notification" id="notif"><span class="check-icon">✔</span><span id="notif-text"></span></div>
+  <div class="notification" id="notif">
+    <svg viewBox="-4 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.375 5.063l-9.5 13.625-6.563-4.875-3.313 4.594 11.188 8.531 12.813-18.375z"/>
+    </svg>
+    <span id="notif-text"></span>
+  </div>
 
   <footer>
     © 2025 – @gu.eth

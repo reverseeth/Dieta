@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dieta — Gustavo Cota</title>
+<meta name="description" content="Plano alimentar diário: 7 refeições, macros e lista de compras.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://reverseeth.github.io/Dieta/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://reverseeth.github.io/Dieta/">
+<meta property="og:title" content="Dieta — Gustavo Cota">
+<meta property="og:description" content="Plano alimentar diário: 7 refeições, macros e lista de compras.">
+<meta property="og:image" content="https://reverseeth.github.io/Dieta/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f2f2f2">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__shell">
+    <div class="nav__brand">
+      <strong>Dieta</strong>
+      <span class="mono">Gustavo Cota</span>
+    </div>
+    <div class="nav__side">
+      <span class="nav__kcal num" id="nav-kcal">0 kcal</span>
+      <button class="switch" type="button" id="theme-toggle" aria-label="Alternar tema claro e escuro" title="Tema">
+        <span class="switch__track"><span class="switch__knob"></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ───────────────────────  HERO  ─────────────────────── -->
+  <section class="hero wrap">
+    <p class="eyebrow mono reveal" data-d="0" id="today-label">
+      <span class="dot" aria-hidden="true"></span><span id="today-text">—</span>
+    </p>
+
+    <div class="hero__next reveal" data-d="1">
+      <p class="mono" id="next-label">Próxima refeição</p>
+      <h1 class="hero__title reveal--lines" id="next-name">
+        <span class="line"><span class="line__in" id="next-name-in">—</span></span>
+      </h1>
+    </div>
+
+    <div class="hero__count reveal" data-d="2">
+      <div class="hero__kcal num" id="hero-kcal">0</div>
+      <div class="hero__plan num">de <span id="plan-kcal">0</span> kcal · <span id="kcal-pct">0%</span></div>
+    </div>
+    <div class="bar reveal" data-d="3" aria-hidden="true"><span id="kcal-bar"></span></div>
+
+    <div class="macros reveal" data-d="4">
+      <div class="macro">
+        <div class="mono">Proteína</div>
+        <div class="macro__val num"><strong id="p-done">0</strong><span> / <span id="p-plan">0</span> g</span></div>
+        <div class="bar"><span id="p-bar"></span></div>
+      </div>
+      <div class="macro">
+        <div class="mono">Carboidrato</div>
+        <div class="macro__val num"><strong id="c-done">0</strong><span> / <span id="c-plan">0</span> g</span></div>
+        <div class="bar"><span id="c-bar"></span></div>
+      </div>
+      <div class="macro">
+        <div class="mono">Gordura</div>
+        <div class="macro__val num"><strong id="g-done">0</strong><span> / <span id="g-plan">0</span> g</span></div>
+        <div class="bar"><span id="g-bar"></span></div>
+      </div>
+    </div>
+
+    <p class="hero__summary reveal" data-d="5">
+      <strong>Cardápio Hipercalórico (~3.100 kcal/dia)</strong>
+      <span>Proteínas: ~160–170g</span>
+      <span>Carboidratos: ~380–400g</span>
+      <span>Gorduras: ~90–100g</span>
+    </p>
+  </section>
+
+  <!-- ───────────────────────  REFEIÇÕES  ─────────────────────── -->
+  <section class="section wrap">
+    <div class="sec-head reveal">
+      <h2>Refeições</h2>
+      <span class="mono"><span id="done-count">0</span> de 7</span>
+    </div>
+
+    <div class="supp reveal">
+      <div style="min-width:0">
+        <div class="mono">Suplemento</div>
+        <div class="supp__name">Creatina 3–5g</div>
+        <div class="supp__note">Com o shake da manhã ou pós-jantar, mesmo sem treino</div>
+      </div>
+      <button class="pill" type="button" id="creatina"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg><span>Marcar</span></button>
+    </div>
+
+      <article class="meal reveal" data-meal="cafe" data-kcal="700" data-p="35" data-c="70" data-g="30" data-time="08:00" data-name="Café da Manhã">
+        <div class="meal__card">
+          <div class="meal__head">
+            <div style="min-width:0">
+              <div class="meal__meta mono">
+                <span class="t">08h00</span>
+                <span>~700 kcal</span>
+                <span class="next-tag">Próxima</span>
+              </div>
+              <h3 class="meal__name">Café da Manhã</h3>
+            </div>
+            <button class="pill" type="button" data-toggle-meal="cafe"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg><span>Marcar</span></button>
+          </div>
+          <div class="meal__rows">
+            <div>
+              <div class="meal__items">
+            <div class="meal__item"><span>Ovos mexidos</span><span>4 unidades</span></div>
+            <div class="meal__item"><span>Pão integral com manteiga</span><span>2 fatias + 1 colher de chá</span></div>
+            <div class="meal__item"><span>Banana com aveia</span><span>1 unidade + 2 colheres de sopa</span></div>
+            <div class="meal__item"><span>Leite integral</span><span>200 ml</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="meal__foot">
+            <span><strong>35g</strong> proteína</span>
+            <span><strong>70g</strong> carboidrato</span>
+            <span><strong>30g</strong> gordura</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="meal reveal" data-meal="lanche-manha" data-kcal="500" data-p="35" data-c="30" data-g="20" data-time="10:30" data-name="Lanche da Manhã">
+        <div class="meal__card">
+          <div class="meal__head">
+            <div style="min-width:0">
+              <div class="meal__meta mono">
+                <span class="t">10h30</span>
+                <span>~500 kcal</span>
+                <span class="next-tag">Próxima</span>
+              </div>
+              <h3 class="meal__name">Lanche da Manhã</h3>
+            </div>
+            <button class="pill" type="button" data-toggle-meal="lanche-manha"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg><span>Marcar</span></button>
+          </div>
+          <div class="meal__rows">
+            <div>
+              <div class="meal__items">
+            <div class="meal__item"><span>Shake de whey com leite</span><span>1 scoop + 300 ml leite integral</span></div>
+            <div class="meal__item"><span>Pasta de amendoim</span><span>1 colher de sopa</span></div>
+            <div class="meal__item"><span>Aveia</span><span>1 colher de sopa</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="meal__foot">
+            <span><strong>35g</strong> proteína</span>
+            <span><strong>30g</strong> carboidrato</span>
+            <span><strong>20g</strong> gordura</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="meal reveal" data-meal="almoco" data-kcal="750" data-p="40" data-c="75" data-g="25" data-time="13:00" data-name="Almoço">
+        <div class="meal__card">
+          <div class="meal__head">
+            <div style="min-width:0">
+              <div class="meal__meta mono">
+                <span class="t">13h00</span>
+                <span>~750 kcal</span>
+                <span class="next-tag">Próxima</span>
+              </div>
+              <h3 class="meal__name">Almoço</h3>
+            </div>
+            <button class="pill" type="button" data-toggle-meal="almoco"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg><span>Marcar</span></button>
+          </div>
+          <div class="meal__rows">
+            <div>
+              <div class="meal__items">
+            <div class="meal__item"><span>Arroz branco</span><span>200 g cozido (~4 colheres cheias)</span></div>
+            <div class="meal__item"><span>Feijão carioca</span><span>1 concha (120 g)</span></div>
+            <div class="meal__item"><span>Carne moída (patinho)</span><span>150 g</span></div>
+            <div class="meal__item"><span>Legumes cozidos</span><span>Brócolis, cenoura</span></div>
+            <div class="meal__item"><span>Salada com azeite</span><span>Folhas verdes + 1 colher de sopa de azeite</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="meal__foot">
+            <span><strong>40g</strong> proteína</span>
+            <span><strong>75g</strong> carboidrato</span>
+            <span><strong>25g</strong> gordura</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="meal reveal" data-meal="lanche-tarde" data-kcal="450" data-p="15" data-c="35" data-g="25" data-time="16:00" data-name="Lanche da Tarde">
+        <div class="meal__card">
+          <div class="meal__head">
+            <div style="min-width:0">
+              <div class="meal__meta mono">
+                <span class="t">16h00</span>
+                <span>~450 kcal</span>
+                <span class="next-tag">Próxima</span>
+              </div>
+              <h3 class="meal__name">Lanche da Tarde</h3>
+            </div>
+            <button class="pill" type="button" data-toggle-meal="lanche-tarde"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg><span>Marcar</span></button>
+          </div>
+          <div class="meal__rows">
+            <div>
+              <div class="meal__items">
+            <div class="meal__item"><span>Iogurte natural ou grego</span><span>1 pote (170 g)</span></div>
+            <div class="meal__item"><span>Mix de castanhas</span><span>25 g (1 punhado)</span></div>
+            <div class="meal__item"><span>Fruta</span><span>Mamão ou maçã (1 unidade média)</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="meal__foot">
+            <span><strong>15g</strong> proteína</span>
+            <span><strong>35g</strong> carboidrato</span>
+            <span><strong>25g</strong> gordura</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="meal reveal" data-meal="pre-jantar" data-kcal="400" data-p="20" data-c="35" data-g="18" data-time="18:30" data-name="Pré-jantar">
+        <div class="meal__card">
+          <div class="meal__head">
+            <div style="min-width:0">
+              <div class="meal__meta mono">
+                <span class="t">18h30</span>
+                <span>~400 kcal</span>
+                <span class="next-tag">Próxima</span>
+              </div>
+              <h3 class="meal__name">Pré-jantar</h3>
+            </div>
+            <button class="pill" type="button" data-toggle-meal="pre-jantar"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg><span>Marcar</span></button>
+          </div>
+          <div class="meal__rows">
+            <div>
+              <div class="meal__items">
+            <div class="meal__item"><span>Batata-doce cozida</span><span>150 g (~1 média)</span></div>
+            <div class="meal__item"><span>Ovos cozidos</span><span>2 unidades</span></div>
+            <div class="meal__item"><span>Salada com azeite</span><span>Folhas + 1 colher de azeite</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="meal__foot">
+            <span><strong>20g</strong> proteína</span>
+            <span><strong>35g</strong> carboidrato</span>
+            <span><strong>18g</strong> gordura</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="meal reveal" data-meal="jantar" data-kcal="650" data-p="45" data-c="50" data-g="22" data-time="20:00" data-name="Jantar">
+        <div class="meal__card">
+          <div class="meal__head">
+            <div style="min-width:0">
+              <div class="meal__meta mono">
+                <span class="t">20h00</span>
+                <span>~650 kcal</span>
+                <span class="next-tag">Próxima</span>
+              </div>
+              <h3 class="meal__name">Jantar</h3>
+            </div>
+            <button class="pill" type="button" data-toggle-meal="jantar"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg><span>Marcar</span></button>
+          </div>
+          <div class="meal__rows">
+            <div>
+              <div class="meal__items">
+            <div class="meal__item"><span>Arroz integral</span><span>150 g cozido (~3 colheres)</span></div>
+            <div class="meal__item"><span>Peito de frango grelhado</span><span>150 g</span></div>
+            <div class="meal__item"><span>Legumes refogados</span><span>Abobrinha, pimentão, cebola</span></div>
+            <div class="meal__item"><span>Azeite de oliva</span><span>1 colher de sopa</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="meal__foot">
+            <span><strong>45g</strong> proteína</span>
+            <span><strong>50g</strong> carboidrato</span>
+            <span><strong>22g</strong> gordura</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="meal reveal" data-meal="ceia" data-kcal="350" data-p="15" data-c="30" data-g="15" data-time="22:00" data-name="Ceia">
+        <div class="meal__card">
+          <div class="meal__head">
+            <div style="min-width:0">
+              <div class="meal__meta mono">
+                <span class="t">22h00</span>
+                <span>~350 kcal</span>
+                <span class="next-tag">Próxima</span>
+              </div>
+              <h3 class="meal__name">Ceia</h3>
+            </div>
+            <button class="pill" type="button" data-toggle-meal="ceia"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg><span>Marcar</span></button>
+          </div>
+          <div class="meal__rows">
+            <div>
+              <div class="meal__items">
+            <div class="meal__item"><span>Leite integral</span><span>250 ml</span></div>
+            <div class="meal__item"><span>Banana</span><span>1 unidade pequena</span></div>
+            <div class="meal__item"><span>Aveia</span><span>1 colher de sopa</span></div>
+            <div class="meal__item"><span>Castanhas-do-pará</span><span>3 unidades</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="meal__foot">
+            <span><strong>15g</strong> proteína</span>
+            <span><strong>30g</strong> carboidrato</span>
+            <span><strong>15g</strong> gordura</span>
+          </div>
+        </div>
+      </article>
+  </section>
+
+  <!-- ───────────────────────  SUBSTITUIÇÕES  ─────────────────────── -->
+  <section class="section wrap">
+    <div class="sec-head reveal">
+      <h2>Sugestões de Substituição</h2>
+    </div>
+    <div class="subs reveal">
+      <div class="subs__h mono">Alimento</div>
+      <div class="subs__h mono">Substituições</div>
+        <div class="f">Frango / carne moída</div>
+        <div class="s">Atum, ovos, peixe, carne magra</div>
+        <div class="f">Banana</div>
+        <div class="s">Mamão, maçã, manga, pera</div>
+        <div class="f">Aveia</div>
+        <div class="s">Granola sem açúcar, linhaça</div>
+        <div class="f">Arroz</div>
+        <div class="s">Mandioca, macarrão, batata</div>
+        <div class="f">Castanhas</div>
+        <div class="s">Nozes, amêndoas, sementes de girassol</div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────  LISTA DE COMPRAS  ─────────────────────── -->
+  <section class="section wrap">
+    <div class="sec-head reveal">
+      <h2>Lista de Compras</h2>
+      <span style="display:flex;align-items:baseline;gap:16px">
+        <span class="mono" id="shop-count">0 de 0</span>
+        <button class="linkish" type="button" id="shop-clear">Limpar</button>
+      </span>
+    </div>
+    <div class="shop">
+        <div class="shop__cat reveal">
+          <div class="mono">Proteínas</div>
+          <div class="shop__items">
+            <button class="check" type="button" data-shop="Ovos"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Ovos</span></button>
+            <button class="check" type="button" data-shop="Peito de frango"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Peito de frango</span></button>
+            <button class="check" type="button" data-shop="Carne moída (patinho)"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Carne moída (patinho)</span></button>
+            <button class="check" type="button" data-shop="Whey protein"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Whey protein</span></button>
+            <button class="check" type="button" data-shop="Iogurte natural"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Iogurte natural</span></button>
+            <button class="check" type="button" data-shop="Leite integral"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Leite integral</span></button>
+          </div>
+        </div>
+        <div class="shop__cat reveal">
+          <div class="mono">Carboidratos</div>
+          <div class="shop__items">
+            <button class="check" type="button" data-shop="Arroz branco"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Arroz branco</span></button>
+            <button class="check" type="button" data-shop="Arroz integral"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Arroz integral</span></button>
+            <button class="check" type="button" data-shop="Batata-doce"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Batata-doce</span></button>
+            <button class="check" type="button" data-shop="Feijão"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Feijão</span></button>
+            <button class="check" type="button" data-shop="Pão integral"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Pão integral</span></button>
+            <button class="check" type="button" data-shop="Aveia"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Aveia</span></button>
+            <button class="check" type="button" data-shop="Banana"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Banana</span></button>
+            <button class="check" type="button" data-shop="Mamão"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Mamão</span></button>
+            <button class="check" type="button" data-shop="Maçã"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Maçã</span></button>
+            <button class="check" type="button" data-shop="Macarrão integral (opcional)"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Macarrão integral (opcional)</span></button>
+          </div>
+        </div>
+        <div class="shop__cat reveal">
+          <div class="mono">Gorduras boas</div>
+          <div class="shop__items">
+            <button class="check" type="button" data-shop="Azeite de oliva extra virgem"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Azeite de oliva extra virgem</span></button>
+            <button class="check" type="button" data-shop="Pasta de amendoim integral"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Pasta de amendoim integral</span></button>
+            <button class="check" type="button" data-shop="Castanha-do-pará"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Castanha-do-pará</span></button>
+            <button class="check" type="button" data-shop="Nozes"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Nozes</span></button>
+            <button class="check" type="button" data-shop="Amêndoas"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Amêndoas</span></button>
+          </div>
+        </div>
+        <div class="shop__cat reveal">
+          <div class="mono">Vegetais e legumes</div>
+          <div class="shop__items">
+            <button class="check" type="button" data-shop="Brócolis"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Brócolis</span></button>
+            <button class="check" type="button" data-shop="Cenoura"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Cenoura</span></button>
+            <button class="check" type="button" data-shop="Abobrinha"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Abobrinha</span></button>
+            <button class="check" type="button" data-shop="Alface"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Alface</span></button>
+            <button class="check" type="button" data-shop="Rúcula"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Rúcula</span></button>
+            <button class="check" type="button" data-shop="Espinafre"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Espinafre</span></button>
+            <button class="check" type="button" data-shop="Tomate"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Tomate</span></button>
+            <button class="check" type="button" data-shop="Cebola"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Cebola</span></button>
+            <button class="check" type="button" data-shop="Pimentão"><span class="check__box"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg></span><span>Pimentão</span></button>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────  OBSERVAÇÕES  ─────────────────────── -->
+  <section class="section wrap">
+    <div class="sec-head reveal">
+      <h2>Observações Finais</h2>
+    </div>
+    <ul class="notes reveal">
+      <li><span class="mono">01</span><span>Alimentação ideal para quem tem baixo peso e deseja ganhar massa de forma saudável.</span></li>
+      <li><span class="mono">02</span><span>Tome creatina (3–5g/dia) com o shake da manhã ou pós-jantar, mesmo sem treino.</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <span>© 2026 – @gu.eth</span>
+  <span id="reset-note">Refeições zeram à meia-noite</span>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5L13.5 4"/></svg><span id="toast-text"></span></div>
+
+<script src="main.js" defer></script>
+</body>
+</html>

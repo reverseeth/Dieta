@@ -135,10 +135,20 @@
     $('g-bar').style.width = pct(a.g, PLAN.g);
   };
 
+  /* the wash palette follows the light outside */
+  var washFor = function (h) {
+    if (h >= 5 && h < 10) return 'dawn';
+    if (h >= 10 && h < 15) return 'day';
+    if (h >= 15 && h < 18) return 'afternoon';
+    if (h >= 18 && h < 21) return 'dusk';
+    return 'night';
+  };
+
   var lastNextName = null;
   var renderDay = function () {
     var d = new Date();
     var minsNow = d.getHours() * 60 + d.getMinutes();
+    document.documentElement.setAttribute('data-wash', washFor(d.getHours()));
     var done = state.done;
     var doneCount = MEALS.filter(function (m) { return done[m.id]; }).length;
 
